@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GreenPlanet - Chatbot</title>
+  </head>
+  <body>
+    <h1>GreenPlanet - Chatbot</h1>
+    <form method="POST" action="{% url 'chatbot' %}">
+      {% csrf_token %}
+      <input type="text" name="question" placeholder="Posez votre question...">
+      <button type="submit">Envoyer</button>
+    </form>
+    {% if question %}
+      <h2>Votre question : {{ question }}</h2>
+      <p>Réponse : {{ response }}</p>
+    {% endif %}
+  </body>
+</html>
